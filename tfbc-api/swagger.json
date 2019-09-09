@@ -1,0 +1,152 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Swagger HLF Vehicle LifeCycle Management.",
+        "version": "1.0.0",
+        "title": "Swagger HLF Vehicle LifeCycle Management",
+        
+        "contact": {
+            "email": ""
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/vlmteam1",
+    
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/placeOrder": {
+            "post": {
+                
+                "summary": "placeOrder",
+                "description": "placeOrder",
+                "operationId": "placeOrder",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "VM object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/acceptOrder": {
+            "post": {
+                
+                "summary": "acceptOrder",
+                "description": "acceptOrder",
+                "operationId": "acceptOrder",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Request ID object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "PO": {
+            "type": "object",
+	    "properties": {
+		"RequestId": {
+	 	    "type": "string",
+		    "description": "Request ID"
+		},
+		"Customer": {
+		    "type": "string",
+		    "description": "Customer"
+		},
+		"Manufacturer": {
+                    "type": "string",
+		    "description": "Manufacturer"
+		},
+                "VehicleType": {
+		    "type": "string",
+		    "description": "VehicleType"
+		}
+	    }
+	},
+  	"AO": {
+            "type": "object",
+            "properties": {
+                "RequestId": {
+                    "type": "string",
+                    "description": "Request ID"
+                },
+                "ChasisId": {
+                    "type": "string",
+                    "description": "Chasis Id"
+                },
+                "ExpiryDate": {
+                    "type": "string",
+                    "description": "Expiry Date"
+                },
+                "Customer": {
+                    "type": "string",
+                    "description": "Customer"
+                },
+                "Manufacturer": {
+                    "type": "string",
+                    "description": "Manufacturer"
+                },
+                "RegistrationID": {
+                    "type": "string",
+                    "description": "RegistrationID"
+                },
+                "RTAId": {
+                    "type": "string",
+                    "description": "RTAId"
+                },
+                "VehicleType": {
+                    "type": "string",
+                    "description": "VehicleType"
+                },
+                "Status": {
+                    "type": "string",
+                    "description": "Status"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}
